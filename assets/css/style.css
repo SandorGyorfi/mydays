@@ -1,0 +1,62 @@
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #000;
+    color: #0F0;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #0F0;
+    box-shadow: 0 0 15px #0F0;
+    background-color: #000;
+}
+
+h1 {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+#days-lived {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0.5; }
+    100% { opacity:1; }
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 0 #0F0, -2px 0 #0F0;
+        transform: skewX(10deg);
+    }
+    33% {
+        text-shadow: -2px 0 #0F0, 2px 0 #0F0;
+        transform: skewX(-10deg);
+    }
+    66% {
+        text-shadow: 2px 0 #0F0, -2px 0 #0F0;
+        transform: skewX(10deg);
+    }
+    100% {
+        text-shadow: -2px 0 #0F0, 2px 0 #0F0;
+        transform: skewX(-10deg);
+    }
+}
+
+/* Glitch Screen Effect */
+.glitch-screen {
+    animation: screenFlicker 0.1s infinite;
+}
+
+@keyframes screenFlicker {
+    0% { filter: brightness(100%); }
+    50% { filter: brightness(90%); }
+    100% { filter: brightness(100%); }
+}
