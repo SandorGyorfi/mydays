@@ -12,7 +12,7 @@ function updateDaysLived() {
 
 function addRandomGlitchEffect() {
     const elementsToGlitch = [document.querySelector('h1'), document.getElementById('days-lived')];
-    const glitchClasses = ['glitch', 'flicker', 'big-glitch']; 
+    const glitchClasses = ['glitch', 'flicker', 'big-glitch'];
 
     elementsToGlitch.forEach(element => {
         function glitchEffect() {
@@ -20,9 +20,12 @@ function addRandomGlitchEffect() {
             const randomGlitchClass = isBigGlitch ? 'big-glitch' : glitchClasses[Math.floor(Math.random() * (glitchClasses.length - 1))];
             element.classList.add(randomGlitchClass);
 
-            setTimeout(() => element.classList.remove(randomGlitchClass), isBigGlitch ? 1000 : 500); 
+            // Shorten the duration of the glitch effect
+            setTimeout(() => {
+                element.classList.remove(randomGlitchClass);
+            }, isBigGlitch ? 500 : 250); 
 
-            setTimeout(glitchEffect, 5000 + Math.random() * (isBigGlitch ? 20000 : 10000)); 
+            setTimeout(glitchEffect, 5000 + Math.random() * 15000); 
         }
         glitchEffect();
     });

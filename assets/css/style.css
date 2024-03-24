@@ -15,9 +15,10 @@ body {
     background-color: #000;
 }
 
-h1 {
+h1, #days-lived {
     font-size: 24px;
     text-transform: uppercase;
+    position: relative;
 }
 
 #days-lived {
@@ -32,20 +33,16 @@ h1 {
 }
 
 @keyframes glitch {
-    0% {
-        text-shadow: 2px 0 #0F0, -2px 0 #0F0;
+    0%, 100% {
+        text-shadow:
+            2px 0 #0F0, -2px 0 #0F0,
+            2px 0 blue, -2px 0 purple;
         transform: skewX(10deg);
     }
-    33% {
-        text-shadow: -2px 0 #0F0, 2px 0 #0F0;
-        transform: skewX(-10deg);
-    }
-    66% {
-        text-shadow: 2px 0 #0F0, -2px 0 #0F0;
-        transform: skewX(10deg);
-    }
-    100% {
-        text-shadow: -2px 0 #0F0, 2px 0 #0F0;
+    33%, 66% {
+        text-shadow:
+            -2px 0 #0F0, 2px 0 #0F0,
+            -2px 0 blue, 2px 0 white;
         transform: skewX(-10deg);
     }
 }
@@ -63,11 +60,15 @@ h1 {
 
 @keyframes bigGlitch {
     0%, 100% {
-        text-shadow: 4px 0 #0F0, -4px 0 #0F0;
+        text-shadow:
+            4px 0 #0F0, -4px 0 purple,
+            4px 0 blue, -4px 0 white;
         transform: skewX(20deg);
     }
     25%, 75% {
-        text-shadow: -4px 0 #0F0, 4px 0 #0F0;
+        text-shadow:
+            -4px 0 #0F0, 4px 0 purple,
+            -4px 0 blue, 4px 0 white;
         transform: skewX(-20deg);
     }
 }
