@@ -10,22 +10,21 @@ function updateDaysLived() {
     document.getElementById('days-lived').textContent = `Days lived: ${differenceInDays}, Hours: ${differenceInHours}, Minutes: ${differenceInMinutes}`;
 }
 
-// Glitch effect randomly
 function addRandomGlitchEffect() {
     const elementsToGlitch = [document.querySelector('h1'), document.getElementById('days-lived')];
-    const glitchClasses = ['glitch', 'flicker'];
+    const glitchClasses = ['glitch', 'flicker', 'big-glitch']; 
 
     elementsToGlitch.forEach(element => {
-        setTimeout(function glitchEffect() {
-            const randomGlitchClass = glitchClasses[Math.floor(Math.random() * glitchClasses.length)];
+        function glitchEffect() {
+            const isBigGlitch = Math.random() < 0.2; 
+            const randomGlitchClass = isBigGlitch ? 'big-glitch' : glitchClasses[Math.floor(Math.random() * (glitchClasses.length - 1))];
             element.classList.add(randomGlitchClass);
 
-            setTimeout(() => {
-                element.classList.remove(randomGlitchClass);
-            }, 500); 
+            setTimeout(() => element.classList.remove(randomGlitchClass), isBigGlitch ? 1000 : 500); 
 
-            setTimeout(glitchEffect, 5000 + Math.random() * 10000); // Random delay for next glitch
-        }, 5000 + Math.random() * 10000);
+            setTimeout(glitchEffect, 5000 + Math.random() * (isBigGlitch ? 20000 : 10000)); 
+        }
+        glitchEffect();
     });
 }
 

@@ -60,3 +60,18 @@ h1 {
     50% { filter: brightness(90%); }
     100% { filter: brightness(100%); }
 }
+
+@keyframes bigGlitch {
+    0%, 100% {
+        text-shadow: 4px 0 #0F0, -4px 0 #0F0;
+        transform: skewX(20deg);
+    }
+    25%, 75% {
+        text-shadow: -4px 0 #0F0, 4px 0 #0F0;
+        transform: skewX(-20deg);
+    }
+}
+
+.big-glitch {
+    animation: bigGlitch 0.5s infinite;
+}
